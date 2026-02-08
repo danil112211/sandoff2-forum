@@ -1,0 +1,191 @@
+/* ===== АДАПТИВНОСТЬ ===== */
+@media(max-width: 1200px) {
+  .header__container {
+    flex-wrap: wrap;
+    gap: 20px
+  }
+
+  .header__logo-section {
+    order: 1;
+  }
+
+  .header__logo-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .header__auth {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    padding-top: 10px;
+    justify-content: center;
+  }
+
+  .nav__list {
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+
+  .nav__text {
+    font-size: 1.3rem;
+    line-height: 1rem;
+  }
+
+  .mobile-menu-btn {
+    order: 4;
+    display: none;
+  }
+
+  .header__btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+
+  .header__logo-section {
+    order: 1;
+  }
+
+  .header__auth {
+    order: 2;
+    width: 100%;
+  }
+
+  .header__menu-btn {
+    order: 1;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+    order: 3;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  .auth-section {
+    margin-left: auto;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    font-size: 2.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-large {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header__logo-section {
+    order: 1;
+  }
+
+  .header__logo-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .header__auth {
+    order: 2;
+    width: auto;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .header__btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+
+  }
+
+  .header__menu-btn {
+    order: 1;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topic__item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topic__icon {
+    margin-bottom: 15px;
+  }
+
+  .topic__stats {
+    margin-top: 15px;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ===== АНИМАЦИЯ ЧИСЕЛ ===== */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

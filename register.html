@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация - Standoff 2 Forum</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="auth-page">
+    <header class="navbar">
+      <div class="container">
+        <div class="logo-section">
+          <a href="index.html" class="logo">
+            <i class="fas fa-crosshairs"></i>
+            <div class="logo-text">
+              <h1>Standoff2<span class="highlight">Forum</span></h1>
+            </div>
+          </a>
+        </div>
+        <a href="index.html" class="btn btn-outline">
+          <i class="fas fa-arrow-left"></i> На главную
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="auth-container">
+        <div class="auth-card">
+          <div class="auth-header">
+            <h2><i class="fas fa-user-plus"></i> Регистрация</h2>
+            <p>Создайте аккаунт, чтобы присоединиться к сообществу Standoff 2</p>
+          </div>
+
+          <form class="auth-form" id="registerForm">
+            <div class="form-group">
+              <label for="regUsername">
+                <i class="fas fa-user"></i> Имя пользователя *
+              </label>
+              <input type="text" id="regUsername" name="username" required placeholder="Придумайте уникальное имя">
+              <div class="form-hint">От 3 до 20 символов, только буквы и цифры</div>
+            </div>
+
+            <div class="form-group">
+              <label for="regEmail">
+                <i class="fas fa-envelope"></i> Email адрес *
+              </label>
+              <input type="email" id="regEmail" name="email" required placeholder="Введите ваш email">
+            </div>
+
+            <div class="form-group">
+              <label for="regSo2Id">
+                <i class="fas fa-gamepad"></i> Standoff 2 ID *
+              </label>
+              <input type="text" id="regSo2Id" name="so2_id" required placeholder="Ваш ID в игре (например: 123456789)">
+              <div class="form-hint">Найти можно в настройках игры</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regPassword">
+                  <i class="fas fa-lock"></i> Пароль *
+                </label>
+                <input type="password" id="regPassword" name="password" required placeholder="Не менее 8 символов">
+              </div>
+
+              <div class="form-group">
+                <label for="regConfirmPassword">
+                  <i class="fas fa-lock"></i> Подтверждение пароля *
+                </label>
+                <input type="password" id="regConfirmPassword" name="confirm_password" required
+                  placeholder="Повторите пароль">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox">
+                <input type="checkbox" name="agree_terms" required>
+                <span>Я согласен с <a href="#">правилами форума</a> и <a href="#">политикой конфиденциальности</a>
+                  *</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox">
+                <input type="checkbox" name="newsletter">
+                <span>Получать уведомления о новых темах и событиях</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fas fa-user-plus"></i> Зарегистрироваться
+            </button>
+          </form>
+
+          <div class="auth-footer">
+            <p>Уже есть аккаунт? <a href="login.html" class="auth-link">Войти</a></p>
+          </div>
+        </div>
+
+        <div class="auth-info">
+          <h3>Преимущества регистрации</h3>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Профиль игрока</h4>
+              <p>Укажите свой Standoff 2 ID, ранг и статистику в профиле</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Поиск команды</h4>
+              <p>Находите напарников по рангу для совместной игры</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Полный доступ к форуму</h4>
+              <p>Создавайте темы, комментируйте, участвуйте в обсуждениях</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Уведомления</h4>
+              <p>Будьте в курсе ответов на ваши темы и сообщений</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Валидация формы регистрации
+    document.getElementById('registerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('regUsername').value;
+      const email = document.getElementById('regEmail').value;
+      const so2Id = document.getElementById('regSo2Id').value;
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+      const agreeTerms = document.querySelector('input[name="agree_terms"]').checked;
+
+      // Проверки
+      if (!username || !email || !so2Id || !password || !confirmPassword) {
+        alert('Пожалуйста, заполните все обязательные поля');
+        return;
+      }
+
+      if (username.length < 3 || username.length > 20) {
+        alert('Имя пользователя должно быть от 3 до 20 символов');
+        return;
+      }
+
+      if (password.length < 8) {
+        alert('Пароль должен быть не менее 8 символов');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Пароли не совпадают');
+        return;
+      }
+
+      if (!agreeTerms) {
+        alert('Вы должны согласиться с правилами форума');
+        return;
+      }
+
+      // Валидация Standoff 2 ID (примерная проверка)
+      if (!/^\d+$/.test(so2Id)) {
+        alert('Standoff 2 ID должен содержать только цифры');
+        return;
+      }
+
+      // В реальном проекте здесь будет отправка на сервер
+      alert('Регистрация успешна! На вашу почту отправлено письмо для подтверждения');
+    });
+  </script>
+
+  <style>
+    /* Дополнительные стили для страниц авторизации */
+    .auth-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+    }
+
+    .auth-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .auth-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .auth-header h2 {
+      color: white;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .auth-header p {
+      color: #b0b0b0;
+    }
+
+    .auth-form {
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .form-hint {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .checkbox input {
+      width: auto;
+    }
+
+    .forgot-password {
+      color: #667eea;
+      font-size: 0.95rem;
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .auth-divider {
+      text-align: center;
+      margin: 25px 0;
+      position: relative;
+      color: #888;
+    }
+
+    .auth-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-divider span {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0 15px;
+      position: relative;
+    }
+
+    .social-auth {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .btn-social {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      justify-content: center;
+    }
+
+    .btn-social:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-vk:hover {
+      background: #4c75a3;
+      border-color: #4c75a3;
+    }
+
+    .btn-google:hover {
+      background: #db4437;
+      border-color: #db4437;
+    }
+
+    .auth-footer {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b0b0b0;
+    }
+
+    .auth-link {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .auth-link:hover {
+      text-decoration: underline;
+    }
+
+    .auth-info {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-info h3 {
+      color: white;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .features-list {
+      list-style: none;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: #b0b0b0;
+    }
+
+    .features-list i {
+      color: #43e97b;
+    }
+
+    .benefit-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      border-color: #667eea;
+      transform: translateX(5px);
+    }
+
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #667eea;
+      font-size: 1.3rem;
+    }
+
+    .benefit-content h4 {
+      color: white;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .benefit-content p {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .auth-container {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .social-auth {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+
+</html>
