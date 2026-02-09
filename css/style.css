@@ -15,7 +15,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   background-color: #0f0f1a;
   color: #e0e0e0;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   overflow-x: hidden;
 }
 
@@ -133,7 +133,7 @@ h3 {
 }
 
 p {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 a {
@@ -417,8 +417,7 @@ a {
 .hero {
   padding: 80px 0;
   background: linear-gradient(135deg, rgba(15, 15, 26, 0.9) 0%, rgba(30, 30, 60, 0.9) 100%),
-    url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');
-  background-size: cover;
+    url('/img/hero-background.jpg');
   background-position: center;
   position: relative;
   overflow: hidden;
@@ -449,7 +448,8 @@ a {
 .hero__title {
   font-size: 3.5rem;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+  background: linear-gradient(135deg, #a3bffa 0%, #ffffff 100%);
+  /* светло-синий → белый */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -566,7 +566,7 @@ a {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #f093fb);
+  /* background: linear-gradient(90deg, #667eea, #f093fb); */
 }
 
 .category__card:hover {
@@ -673,7 +673,7 @@ a {
   font-size: 0.9rem;
 }
 
-.topic__meta i {
+.topic__meta-icon {
   margin-right: 5px;
 }
 
@@ -813,9 +813,7 @@ a {
   font-size: 0.9rem;
 }
 
-.footer__bottom-descr {
-  margin-bottom: 5px;
-}
+.footer__bottom-descr {}
 
 /* ===== КНОПКА НАВЕРХ ===== */
 .scroll-top-btn {
